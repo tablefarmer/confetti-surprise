@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confetti Surprise</title>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff5722;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the <span style="color: #2196F3;">Confetti Surprise</span>!</h1>
+
+  <script>
+    const createConfetti = () => {
+      const confettiColors = ['#f44336', '#2196F3', '#FFEB3B', '#4CAF50', '#E91E63', '#00BCD4', '#FFC107'];
+      const confettiShapes = ['🎉', '🎊', '🎈', '🎁', '🌟'];
+
+      const createConfettiPiece = () => {
+        const confetti = document.createElement('div');
+        confetti.innerText = confettiShapes[Math.floor(Math.random() * confettiShapes.length)];
+        confetti.style.fontSize = Math.floor(Math.random() * 30) + 10 + 'px';
+        confetti.style.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        confetti.style.position = 'fixed';
+        confetti.style.zIndex = '9999';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = Math.random() * 100 + 'vh';
+        confetti.style.transform = 'translate(-50%, -50%) rotate(' + Math.random() * 360 + 'deg)';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 10000); // Change 5000 to 10000 to last for 10 seconds
+      };
+
+      const confettiInterval = setInterval(() => {
+        createConfettiPiece();
+      }, 100);
+
+      setTimeout(() => {
+        clearInterval(confettiInterval);
+      }, 10000); // Change 5000 to 10000 to last for 10 seconds
+    };
+
+    createConfetti();
+  </script>
+</body>
+</html>
