@@ -15,7 +15,7 @@
 
     h1 {
       font-size: 3rem;
-      color: #ff5722;
+      color: red;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
       animation: bounce 1s infinite alternate;
     }
@@ -27,18 +27,17 @@
   </style>
 </head>
 <body>
-  <h1>Welcome to the <span style="color: #2196F3;">Confetti Surprise</span>!</h1>
+  <h1>I love Maja ❤️</h1>
 
   <script>
     const createConfetti = () => {
-      const confettiColors = ['#f44336', '#2196F3', '#FFEB3B', '#4CAF50', '#E91E63', '#00BCD4', '#FFC107'];
-      const confettiShapes = ['🎉', '🎊', '🎈', '🎁', '🌟'];
+      const confettiShapes = ['❤️', '💖', '💕', '💓', '💗', '💘', '💞'];
 
       const createConfettiPiece = () => {
         const confetti = document.createElement('div');
         confetti.innerText = confettiShapes[Math.floor(Math.random() * confettiShapes.length)];
         confetti.style.fontSize = Math.floor(Math.random() * 30) + 10 + 'px';
-        confetti.style.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        confetti.style.color = 'red';
         confetti.style.position = 'fixed';
         confetti.style.zIndex = '9999';
         confetti.style.pointerEvents = 'none';
